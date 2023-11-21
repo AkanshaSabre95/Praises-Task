@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praise List</title>
+</head>
+<style>
+    .praise-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .share-button, .thumbs-up-button {
+        margin: 5px;
+    }
+</style>    
+<body>
+    <h1>Praise List</h1>
+    {% for praise in praises %}
+    <div class="praise-card">
+        <img src="{{ praise.image.url }}" alt="{{ praise.praised_to }} Image">
+        <h3>{{ praise.praised_to }}</h3>
+        <p>{{ praise.praise_text }}</p>
+        <p>Praised by: {{ praise.praised_by }}</p>
+        <button class="share-button">Share</button>
+        <button class="thumbs-up-button">👍</button>
+        <img src="{{ praise.badge_icon.url }}" alt="Badge Icon">
+    </div>
+    {% endfor %}
+</body>
+</html>
